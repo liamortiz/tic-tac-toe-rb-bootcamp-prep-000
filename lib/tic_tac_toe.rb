@@ -51,3 +51,19 @@ end
 def current_player(board)
   (turn_count(board).even? ? "X" : "O")
 end
+
+def won?(board)
+  # Check empty board
+  if !board.any?{|c| c == "X" || c == "Y"}
+    return false
+  end
+
+  # Check for winners
+  WIN_COMBINATIONS.select{|row| row.all?{|index| position_taken?(board, index)}}.each do |row|
+    if row.all?{|index| board[index] == 'X'} or row.all?{|index| board[index] == 'O'}
+      return row
+    end
+  end
+  # No winners ? must be draw
+  false
+end
