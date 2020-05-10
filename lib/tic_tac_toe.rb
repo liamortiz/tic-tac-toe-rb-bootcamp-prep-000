@@ -95,7 +95,7 @@ end
 def play(board)
   until over?(board) do
     turn(board)
-    puts won?(board)
+    puts "AJJJJJJJJJJJJJJJJJJJJJJJJJJJ"
     if won?(board)
       puts "Congratulations #{winner(board)}!"
       break
