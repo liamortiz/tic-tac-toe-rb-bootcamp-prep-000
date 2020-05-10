@@ -33,16 +33,7 @@ def valid_move?(board, index)
   index.between?(0, 8) and !position_taken?(board, index)
 end
 
-def turn(board)
-  puts "Please enter 1-9"
-  user_input = input_to_index(gets.strip)
-  
-  if valid_move?(board, user_input)
-    move(board, user_input, current_player(board))
-  else
-    turn(board)
-  end
-end
+
 
 def turn_count(board)
   9 - board.count(" ")
