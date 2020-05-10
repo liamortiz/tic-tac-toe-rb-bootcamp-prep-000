@@ -67,3 +67,27 @@ def won?(board)
   # No winners ? must be draw
   false
 end
+
+def full?(board)
+  !board.any?(" ")
+end
+
+def draw?(board)
+  # Draw
+  if won?(board)
+    return false
+  elsif board.count{|c| c == "O" or c == "X"} == 9
+    return true
+  end
+end
+
+def over?(board)
+  (draw?(board) or won?(board))
+end
+
+def winner(board)
+  player = won?(board)
+  if player
+    return board[player[0]]
+  end
+end
